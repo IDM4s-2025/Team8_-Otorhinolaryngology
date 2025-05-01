@@ -49,8 +49,8 @@ class AcademicPerformance(KnowledgeEngine):
     
     '''
     Paulina Leal Mosqueda
-    Ask if the patient has a ear pain,
-    while making sure it doesn't have a sore throat, since it isn't a direct symptom of otitis nor Sinusitis.
+    Ask if the patient has a ear pain, while making sure it doesn't have a sore throat, 
+    since it isn't a direct symptom of otitis nor Sinusitis.
     '''
     # Paulina Leal Mosqueda
     @Rule(Fact(action=False),
@@ -72,7 +72,7 @@ class AcademicPerformance(KnowledgeEngine):
         
     '''
     Paulina Leal Mosqueda
-    Ask if the patient has a loss of balance to see if see if it might have otitis.
+    Ask if the patient has a loss of balance to see if it might have otitis.
     If not the system will keep looking for answers.
     '''     
     @Rule(Fact(action=False),
@@ -95,8 +95,8 @@ class AcademicPerformance(KnowledgeEngine):
     
     '''
     Paulina Leal Mosqueda
-    Ask if the patient has a runny nose, while making sure that it doesn't have a sore throat or loss of balance.
-    This will help to determine if the patient has sinusitis.
+    Ask if the patient has a runny nose, while making sure that it doesn't have a sore throat
+    or loss of balance. This will help to determine if the patient has sinusitis.
     '''  
     @Rule(Fact(action=False),
           Fact(sore_throat = False),
@@ -121,6 +121,8 @@ class AcademicPerformance(KnowledgeEngine):
     Paulina Leal Mosqueda
     If the patient has a sore throat, it then has tonsillitis.
     Sore throat implies tonsillitis.
+    
+    (Mayo Clinic, s.f.)
     '''  
     @Rule(Fact(action=False),
           Fact(sore_throat = True),
@@ -137,6 +139,8 @@ class AcademicPerformance(KnowledgeEngine):
     Paulina Leal Mosqueda
     If the patient doesn't have a sore throat and it has ear pain and it has a runny nose, 
     but it doesn't have loss of balance, then the patient might have sinusitis.
+    
+    (Cleveland Clinic, 2023)
     '''
     
     @Rule(Fact(action=False),
@@ -156,6 +160,8 @@ class AcademicPerformance(KnowledgeEngine):
     Paulina Leal Mosqueda
     If the patient doesn't have a sore throat and it has ear pain
     then the patient might have sinusitis Acute Otitis Media.
+    
+    (Mayo Clinic, s.f.)
     '''
     @Rule(Fact(action=False),
           Fact(sore_throat = False),
@@ -206,3 +212,5 @@ engine = AcademicPerformance()
 engine.reset()
 print(engine.facts)
 engine.run()
+
+
