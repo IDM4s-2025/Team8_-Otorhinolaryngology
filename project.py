@@ -122,7 +122,7 @@ class AcademicPerformance(KnowledgeEngine):
     If the patient has a sore throat, it then has tonsillitis.
     Sore throat implies tonsillitis.
     
-    (Mayo Clinic, s.f.)
+    (Mayo Clinic, 2022)
     '''  
     @Rule(Fact(action=False),
           Fact(sore_throat = True),
@@ -161,7 +161,7 @@ class AcademicPerformance(KnowledgeEngine):
     If the patient doesn't have a sore throat and it has ear pain
     then the patient might have sinusitis Acute Otitis Media.
     
-    (Mayo Clinic, s.f.)
+    (Mayo Clinic, 2025)
     '''
     @Rule(Fact(action=False),
           Fact(sore_throat = False),
