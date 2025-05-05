@@ -84,19 +84,19 @@ class Otorhinolaryngology(KnowledgeEngine):
           Fact(ear_pain=True), 
           Fact(tragal_tenderness=False), 
           Fact(middle_fluid=False), 
-          NOT(Fact(meniere_symptoms=W())))
+          NOT(Fact(meniere_symptom=W())))
     def ask_meniere(self):
-        """Author: Adrián"""
+        """Author: Adrián Tavera"""
         ans = get_valid_input("Do you feel ear fullness? (yes/no): ", ["yes", "no"])
-        self.declare(Fact(meniere_symptoms=(ans == 'yes')))
+        self.declare(Fact(meniere_symptom=(ans == 'yes')))
 
     @Rule(Fact(location='ear'), 
           Fact(ear_pain=True), 
           Fact(tragal_tenderness=False), 
           Fact(middle_fluid=False), 
-          Fact(meniere_symptoms=True))
+          Fact(meniere_symptom=True))
     def diagnose_meniere(self):
-        """Author: Adrián"""
+        """Author: Adrián Tavera"""
         print("Diagnosis: Meniere's Disease")
         self.halt()
 
@@ -104,7 +104,7 @@ class Otorhinolaryngology(KnowledgeEngine):
           Fact(ear_pain=True), 
           Fact(tragal_tenderness=False), 
           Fact(middle_fluid=False), 
-          Fact(meniere_symptoms=False),
+          Fact(meniere_symptom=False),
           NOT(Fact(diagnose_neuroma=W())))
     def ask_diagnose_neuroma(self):
         """Author: Santiago"""
@@ -116,7 +116,7 @@ class Otorhinolaryngology(KnowledgeEngine):
       Fact(ear_pain=True), 
       Fact(tragal_tenderness=False), 
       Fact(middle_fluid=False), 
-      Fact(meniere_symptoms=False),
+      Fact(meniere_symptom=False),
       Fact(diagnose_neuroma=True))
     def diagnose_neuroma_confirmed(self):
         """Author: Santiago"""
@@ -127,7 +127,7 @@ class Otorhinolaryngology(KnowledgeEngine):
     @Rule(Fact(location='ear'), 
           Fact(ear_pain=False))
     def unclear_ear(self):
-        """Author: Adrián"""
+        """Author: Adrián Tavera"""
         print("Diagnosis: Unclear\nRefer to a specialist.")
         self.halt()
         
@@ -135,7 +135,7 @@ class Otorhinolaryngology(KnowledgeEngine):
       Fact(ear_pain=True), 
       Fact(tragal_tenderness=False), 
       Fact(middle_fluid=False), 
-      Fact(meniere_symptoms=False),
+      Fact(meniere_symptom=False),
       Fact(diagnose_neuroma=False))
     def diagnose_neuroma_unconfirmed(self):
         """Author: Paulina"""
@@ -203,7 +203,7 @@ class Otorhinolaryngology(KnowledgeEngine):
           Fact(allergy=False), 
           NOT(Fact(nasal_blockage=W())))
     def ask_blockage(self):
-        """Author: Adrián"""
+        """Author: Adrián Tavera"""
         ans = get_valid_input("Persistent nasal blockage with loss of smell and taste not relieved by decongestants? (yes/no): ", ["yes", "no"])
         self.declare(Fact(nasal_blockage=(ans == 'yes')))
 
@@ -213,7 +213,7 @@ class Otorhinolaryngology(KnowledgeEngine):
           Fact(allergy=False), 
           Fact(nasal_blockage=True))
     def diagnose_polyps(self):
-        """Author: Adrián"""
+        """Author: Adrián Tavera"""
         print("Diagnosis: Nasal Polyps")
         self.halt()
 
